@@ -1,0 +1,17 @@
+div.playzone {
+    background-image: url("background.jpg");
+    background-size: 100% 900px;
+    width: 100%;
+    height: 900px;
+}
+div.star {
+    position: absolute;
+}
+div.points {
+    position: absolute;
+    text-align: right;
+    width: 95%;
+    top: 10px;
+    color: red;
+    font-size: 40px;
+}
