@@ -9,16 +9,20 @@ $(function(){
     const maxStars = 10
     const pointsForStar = 10
     const pointsForWin = 100
+    const backgroundCount = 3
     let pointsCount = 0
     let starsLeft = 0
 
     initAllStars()
 
     function initAllStars() {
+        let playzone = $('div.playzone')
+        let backgroundNumber = getRandom(1, backgroundCount)
+        playzone.css('background-image', 'url("background' + backgroundNumber + '.jpg")')
         updatePoints()
-        let starsCount = Math.round(getRandom(minStars, maxStars))
+        let starsCount = getRandom(minStars, maxStars)
         for (let i = 1; i <= starsCount; i++) {
-            $('div.playzone').append('<div class="star star'+i+'"><img src="star.png" width="100px"/></div>')
+            playzone.append('<div class="star star'+i+'"><img src="star.png" width="100px"/></div>')
             initStar(i)
         }
         alert('Найди ' + starsCount + ' звёздочек')
@@ -26,7 +30,7 @@ $(function(){
     }
 
     function getRandom(minValue, maxValue) {
-        return Math.random() * (maxValue - minValue) + minValue;
+        return Math.floor(Math.random() * (maxValue - minValue + 1) + minValue);
     }
 
     function initStar(number) {
